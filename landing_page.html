@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드래곤프루트 - 자연의 신비로운 선물</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #FF3B7E;
+            --primary-dark: #E0356F;
+            --secondary: #121212;
+            --accent: #2DCC70;
+            --text-light: #F8F9FA;
+            --text-dark: #212529;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 10%;
+            background: radial-gradient(circle at top right, rgba(255, 59, 126, 0.2), transparent);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(255, 59, 126, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(255, 59, 126, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background: var(--primary-dark);
+            box-shadow: 0 15px 30px rgba(255, 59, 126, 0.5);
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        #features {
+            padding: 100px 10%;
+            background: #1a1a1a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+        }
+
+        .feature-card i {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            opacity: 0.7;
+        }
+
+        /* Story Section */
+        #story {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            filter: blur(100px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4rem;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        input, textarea {
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        textarea {
+            grid-column: span 2;
+            height: 150px;
+            resize: none;
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            padding: 1.2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 10%;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+            input, textarea, .submit-btn {
+                grid-column: span 1;
+            }
+            #story {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <i data-lucide="zap"></i> DRAGON FRUIT
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">홈페이지</a></li>
+            <li><a href="#features">제품</a></li>
+            <li><a href="#story">스토리</a></li>
+            <li><a href="#contact">문의</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>강렬한 색감,<br><span>순수한 에너지.</span></h1>
+            <p>열대 지방의 햇살을 머금은 신비로운 과일, 용과의 진한 풍미와 영양을 경험해보세요. 자연이 선사하는 가장 아름다운 슈퍼푸드입니다.</p>
+            <a href="#features" class="cta-button">더 알아보기</a>
+        </div>
+        <div class="hero-image">
+            <img src="ai.png" alt="용과 (Dragon Fruit)">
+        </div>
+    </section>
+
+    <section id="features">
+        <h2 class="section-title">제품의 <span>장점</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i data-lucide="sun"></i>
+                <h3>100% 신선도</h3>
+                <p>최적의 수확 시기에 맞춰 채취하여 최고의 당도와 아삭한 식감을 보장합니다.</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="heart"></i>
+                <h3>풍부한 영양</h3>
+                <p>항산화 물질, 비타민 C, 식이섬유가 풍부하여 건강한 라이프스타일을 완성합니다.</p>
+            </div>
+            <div class="feature-card">
+                <i data-lucide="leaf"></i>
+                <h3>친환경 재배</h3>
+                <p>자연 친화적인 농법으로 재배하여 온 가족이 안심하고 즐길 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="story-visual">
+            <img src="ai.png" alt="Premium Dragon Fruit" style="width: 100%; border-radius: 30px; opacity: 0.8;">
+        </div>
+        <div class="story-text">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">우리의 <span>스토리</span></h2>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">
+                용과는 그 독특한 외형 때문에 '드래곤 프루트'라 불리게 되었습니다. 겉은 강렬한 분홍빛을 띠지만, 속은 눈처럼 하얗고 검은 씨앗이 보석처럼 박혀 있죠. <br><br>
+                우리는 이 신비로운 과일이 가진 본연의 가치를 전달하기 위해 전 세계 최고의 농장을 찾아다닙니다. 맛뿐만 아니라 시각적인 즐거움까지 선사하는 드래곤 프루트와 함께 일상에 생기를 불어넣으세요.
+            </p>
+            <a href="#" class="cta-button" style="background: transparent; border: 2px solid var(--primary);">스토리 전체보기</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">궁금한 점이 <span>있으신가요?</span></h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="이름" required>
+                    <input type="email" placeholder="이메일" required>
+                </div>
+                <input type="text" placeholder="제목">
+                <textarea placeholder="메시지를 입력해주세요..."></textarea>
+                <button type="submit" class="submit-btn">문의 보내기</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Dragon Fruit Premium. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth reveal on scroll (simple implementation)
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(50px)";
+            section.style.transition = "all 0.8s ease-out";
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
